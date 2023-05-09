@@ -5,9 +5,17 @@
 */
 {
     // 当前项目使用的ThingJS包（thing.min.js）版本号
-    "thingjs_version" : "1.2.7.24",
-    // 提示：项目中引用的场景URL, 为能正确打包上述场景，需手动配置：
-    "scenes":  ["/api/scene/20210616095248956300069"],
-    // 提示：项目中动态引用了模型, 为能正确打包该引用模型，需手动配置：
-    "models": ["/api/models/7bfb3321557a40fead822d7285ac5324/0/gltf/"]
+    "thingjs_version" : "1.4.15",
+    // 举例：项目中引用的第一个场景URL为 "/api/scene/d370cad09e74f42d932b083d"，
+    //      第二个场景URL为 "/api/scene/b422fd26d4c7874df3992068"，
+    //      为能正确打包上述两个场景，需配置如下：
+    // "scenes": [
+    //     "/api/scene/d370cad09e74f42d932b083d",
+    //     "/api/scene/b422fd26d4c7874df3992068"
+    //  ],
+    // 举例：项目中动态引用了模型 "/api/models/8CF6171F7EE046968B16E10181E8D941/0/gltf/"，
+    //      为能正确打包该引用模型，需配置如下：
+    // "models": [
+    //     "/api/models/8CF6171F7EE046968B16E10181E8D941/0/gltf/"
+    //  ]
 }

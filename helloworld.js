@@ -14,12 +14,12 @@ var app = new THING.App({
  *      2. 如果引入该脚本是预览地图，则应在引用地图组件脚本complete回调中引用，初始化
  *         方法示例为：new AppPreview({app:app, type:'city', map:event.object})
  */
-THING.Utils.dynamicLoad(['https://www.thingjs.com/guide/ScenePreview/v0.1.9/AppPreview.min.js'],
-    function () {
-        // 在load事件中的调用示例如下所示：
-        app.on('load', function(){
-            new AppPreview({app: app, type: 'scene'});
-        });
-    }
-)
+// THING.Utils.dynamicLoad(['https://www.thingjs.com/guide/ScenePreview/v0.1.9/AppPreview.min.js'],
+//     function () {
+//         // 在load事件中的调用示例如下所示：
+//         app.on('load', function(){
+//             new AppPreview({app: app, type: 'scene'});
+//         });
+//     }
+// )
 
