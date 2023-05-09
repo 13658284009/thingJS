@@ -2,7 +2,8 @@
 
 // 加载场景代码 
 var app = new THING.App({ 
-   url: '/api/scene/4b34e62164859265fa29f596'
+   url: '/api/scene/4b34e62164859265fa29f596',
+   resourceLibraryUrl: './'
 });
 /**
  * 引入场景预览脚本
