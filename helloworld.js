@@ -1,6 +1,6 @@
 var app = new THING.App({
   // 引用场景
-  url: "/api/scene/fa0c1bd3d86c48f089f684be", // 场景地址
+  url: "/api/scene/20210616095248956300069", // 场景地址
   skyBox: "BlueSky", // 天空盒
   resourceLibraryUrl: "./",
 });
