@@ -1,0 +1,4 @@
+{
+  "project-server.address": "http://192.168.0.88:9100",
+  "project-server.user": "admin"
+}
