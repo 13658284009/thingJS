@@ -108,6 +108,7 @@ layui.use(function () {
       {},
       function (res) {
         if (res.status == 0) {
+          // 成功
           localStorage.setItem("token", res.data);
           layer.msg("登录成功", { icon: 1 }, function () {
             // layer.msg('提示框关闭后的回调');
@@ -118,6 +119,7 @@ layui.use(function () {
           $("#loginBox").remove();
           console.log(res);
         } else {
+          // 失败
           getCode();
           layer.msg(res.message, { icon: 0 }, function () {
             // layer.msg('提示框关闭后的回调');
@@ -150,7 +152,7 @@ function successLogin() {
 
 // 获取用户信息
 function getUserInfo() {
-  post("/authorize/admin/queryUserInfo", {}, function (res) {
+  post("/authorize/admin/queryUserInfo", {}, {}, function (res) {
     console.log("用户信息：", res);
     userInfo = res.data;
     loginInit()

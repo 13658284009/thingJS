@@ -34,20 +34,22 @@ function ajax(
   var async = async || true; //异步请求
   var alone = alone || false; //独立提交（一次有效的提交）
   var cache = cache || false; //浏览器历史缓存
-  var success1 =
-    function (data) {
-      console.log("success1", data);
-      if (data.status == 0) {
-        success(data);
-      } else if (data.status == 3) {
-        //服务器处理成功
-        localStorage.removeItem("token");
-        layer.msg("token失效,请重新登录");
-        openLogin();
-      } else {
-        layer.msg(data.message);
-      }
-    };
+  var success1 = function (data) {
+    console.log("success1", data);
+    if (data.status == 0) {
+      success(data);
+    } else if (data.status == 1) {
+      //服务器处理成功
+      success(data);
+    } else if (data.status == 3) {
+      //服务器处理成功
+      localStorage.removeItem("token");
+      layer.msg("token失效,请重新登录");
+      openLogin();
+    } else {
+      layer.msg(data.message);
+    }
+  };
   var error1 =
     error ||
     function (data) {
@@ -121,7 +123,6 @@ function post(url, parmas, data, success, cache, alone) {
   if (!baimingdan.includes(url)) {
     if (token) {
     } else {
-      alert(333);
       return;
     }
   }
