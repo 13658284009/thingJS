@@ -63,7 +63,7 @@ function db() {
           setTimeout(() => {
             $("body").append($(dbHtml));
 
-            var chartDom = $("#screenIDLiftBox1");
+            var chartDom = document.getElementById("screenIDLiftBox1");
             var myChart = echarts.init(chartDom);
             var option;
 
@@ -84,6 +84,11 @@ function db() {
             };
 
             option && myChart.setOption(option);
+            THING.Utils.dynamicLoad([
+              "/view/panel/left/index.js"
+            ], function() {
+
+            })
           }, 200);
         } else {
           $("#screenID")[0].style.display = "block";
@@ -98,7 +103,7 @@ let dbHtml = `
     <div class="left">
       <div id="screenIDLiftBox1" class="screenIDLiftBox1"></div>
     </div>
-    <div class="content"></div>
+    <div id="sreeIDContent" class="content"></div>
     <div class="right"></div>
   </div>
 `;
@@ -109,26 +114,29 @@ let dbCss = `
     }
     .screen .screenIDLiftBox1 {
       width: 100%;
-      height: 200px;
-      
+      height: 400px;
+      background: #fff;
     }
     .screen > .left {
       background: rgba(0,0,0,0.5);
       position: absolute;
       top: 0;
       left: 0;
+      padding: 10px;
       z-index: 10;
       width: 30%;
       height: 100%;
+      box-sizing: border-box;
     }
     .screen > .content {
       background: rgba(0,0,0,0.5);
       position: absolute;
       bottom: 0;
       left: 31%;
+      padding: 10px;
       z-index: 10;
       width: 38%;
-      height: 20%;
+      min-height: 10px;
       padding: 10px;
       box-sizing: border-box;
     }
@@ -137,9 +145,11 @@ let dbCss = `
       position: absolute;
       top: 0;
       right: 0;
+      padding: 10px;
       z-index: 10;
       width: 30%;
       height: 100%;
+      box-sizing: border-box;
     }
   </style>
 `;

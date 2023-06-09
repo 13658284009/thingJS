@@ -16,10 +16,11 @@ THING.Utils.dynamicLoad(
     "/view/production/index.js",
     "/view/panel/index.js",
     "/view/layerMonitoring/index.js",
-    
+    "/static/utlis/websocoket.js",
   ],
   function () {
-    console.log('echarts', echarts)
+    
+    // websocketDom().sendSock({ type: "上料", data: "feeding" });
   }
 );
 
@@ -48,7 +49,9 @@ app.on("load", function (ev) {
 
   // 初始化
   if (token) {
-    getPlanList();
+    // 获取用户信息
+    getUserInfo()
+    
   }
   click();
   db();

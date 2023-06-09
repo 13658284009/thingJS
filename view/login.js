@@ -74,7 +74,7 @@ function getCode() {
     {},
     {},
     function (res) {
-      console.log('hahah',res);
+      console.log("hahah", res);
       $("#codeBox")[0].innerText = "";
       codeImg =
         "data:image/jpg;base64," + res.data.base64VerificationCodeString;
@@ -112,6 +112,8 @@ layui.use(function () {
           layer.msg("登录成功", { icon: 1 }, function () {
             // layer.msg('提示框关闭后的回调');
           });
+          // 获取用户信息
+          getUserInfo();
           successLogin();
           $("#loginBox").remove();
           console.log(res);
@@ -144,6 +146,15 @@ function successLogin() {
     </div>
   `)
   );
+}
+
+// 获取用户信息
+function getUserInfo() {
+  post("/authorize/admin/queryUserInfo", {}, function (res) {
+    console.log("用户信息：", res);
+    userInfo = res.data;
+    loginInit()
+  });
 }
 
 /**
@@ -248,3 +259,16 @@ $("head").append(
   </style>
 `)
 );
+
+function loginInit() {
+  getPlanList(); // 获取计划列表
+  createWebSocket(function (res) {
+    console.log("连接成功：", res);
+  });
+  sendSock(
+    JSON.stringify({
+      type: "user",
+      data: `feeding_${userInfo.code}`,
+    })
+  );
+}
